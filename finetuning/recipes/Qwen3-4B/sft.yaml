@@ -1,0 +1,44 @@
+# Model arguments
+model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+# model_name_or_path: Qwen/Qwen3-4B-Thinking-2507
+model_revision: main
+torch_dtype: bfloat16
+attn_implementation: flash_attention_2
+
+# Data training arguments
+dataset_num_proc: 1
+
+# SFT trainer config
+bf16: true
+do_eval: true
+eval_strategy: steps
+eval_steps: 100
+eval_on_start: true
+gradient_accumulation_steps: 1
+gradient_checkpointing: true
+gradient_checkpointing_kwargs:
+  use_reentrant: false
+log_level: info
+logging_steps: 1
+logging_strategy: steps
+lr_scheduler_type: cosine_with_min_lr
+learning_rate: 5e-06
+neftune_noise_alpha: 7
+lr_scheduler_kwargs:
+  min_lr_rate: 0.1
+packing: false
+max_length: 32768
+# max_steps: 1000
+num_train_epochs: 1
+per_device_train_batch_size: 1
+per_device_eval_batch_size: 1
+overwrite_output_dir: true
+report_to:
+- wandb
+save_strategy: "epoch"
+save_total_limit: 10
+seed: 42
+use_liger_kernel: true
+warmup_ratio: 0.03
+assistant_only_loss: true
+# take_first_n_samples: 10000

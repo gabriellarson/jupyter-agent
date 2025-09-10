@@ -1,0 +1,37 @@
+[project]
+name = "jupyter-agent-finetuning"
+version = "0.1.0"
+description = "finetuning environment for the jupyter agent"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "datasets",
+    "transformers",
+    "trl",
+    "wandb",
+    "accelerate",
+    "deepspeed",
+    "hf-transfer",
+    "ipykernel",
+    "ipywidgets",
+    "torch==2.6.0", # fixed to allow installation of flash-attention via wheels,
+    "liger-kernel",
+    "peft",
+    "openai",
+    "e2b-code-interpreter",
+    "python-dotenv",
+    "hf_xet",
+    "setuptools",
+    "flash-attn",
+    "rich"
+]
+
+[tool.uv]
+no-build-isolation-package = ["flash-attn"]
+
+[[tool.uv.dependency-metadata]]
+name = "flash-attn"
+version = "2.7.4.post1"
+requires-dist = ["torch", "einops"]
+# to do after uv pip install flash_attn==2.7.4.post1 --no-build-isolation
+# there is a nasty bug on the cluster with the latest version of flash_attn https://github.com/Dao-AILab/flash-attention/issues/1708

@@ -1,0 +1,31 @@
+[project]
+name = "jupyter-agent-data-pipeline"
+version = "0.1.0"
+description = "Jupyter Agent data pipeline"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "nbconvert",
+    "traitlets",
+    "nbformat",
+    "datatrove[all]",
+    "datasets",
+    "jinja2",
+    "hf_transfer",
+    "gradio",
+    "openai",
+    "ipykernel",
+    "ipywidgets",
+    "transformers",
+    "pandas",
+    "pandarallel",
+    "e2b-code-interpreter==1.5.2",
+    "kagglehub"
+]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["pipelines"]
