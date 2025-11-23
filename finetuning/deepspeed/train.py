@@ -43,8 +43,8 @@ tokenizer.chat_template = template
 
 training_args = SFTConfig(
     eval_strategy="steps",
-    eval_steps=500,
-    eval_on_start=True,
+    eval_steps=50000,
+    eval_on_start=False,
     gradient_accumulation_steps=1,
     gradient_checkpointing=True,
     gradient_checkpointing_kwargs={"use_reentrant":False},
